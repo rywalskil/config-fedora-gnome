@@ -7,6 +7,8 @@ sudo mv /etc/yum.repos.d/fedora-update.repo /etc/yum.repos.d/fedora-update.repo.
 sudo cp ./fedora.repo /etc/yum.repos.d/
 sudo cp ./fedora-update.repo /etc/yum.repos.d/
 
+sudo dnf upgrade --refresh
+
 # general settings configuration
 # gsettings set org.gnome.desktop.interface text-scaling-factor 1.68
 gsettings set org.gnome.desktop.background picture-uri ''
