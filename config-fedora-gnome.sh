@@ -2,10 +2,10 @@
 
 # repos config files - backup fedora files and update the target to point to the cern one
 sudo mv /etc/yum.repos.d/fedora.repo /etc/yum.repos.d/fedora.repo.bk
-sudo mv /etc/yum.repos.d/fedora-update.repo /etc/yum.repos.d/fedora-update.repo.bk
+sudo mv /etc/yum.repos.d/fedora-updates.repo /etc/yum.repos.d/fedora-update.repo.bk
 
 sudo cp ./fedora.repo /etc/yum.repos.d/
-sudo cp ./fedora-update.repo /etc/yum.repos.d/
+sudo cp ./fedora-updates.repo /etc/yum.repos.d/
 
 sudo dnf upgrade --refresh
 
