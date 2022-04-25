@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+# repos config files - backup fedora files and update the target to point to the cern one
+sudo mv /etc/yum.repos.d/fedora.repo /etc/yum.repos.d/fedora.repo.bk
+sudo mv /etc/yum.repos.d/fedora-update.repo /etc/yum.repos.d/fedora-update.repo.bk
+
+sudo cp ./fedora.repo /etc/yum.repos.d/
+sudo cp ./fedora-update.repo /etc/yum.repos.d/
+
+# general settings configuration
 # gsettings set org.gnome.desktop.interface text-scaling-factor 1.68
 gsettings set org.gnome.desktop.background picture-uri ''
 gsettings set org.gnome.desktop.background primary-color '#606060'
@@ -18,6 +26,7 @@ gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
 
+# remove useless applications
 sudo dnf autoremove -y cheese
 sudo dnf autoremove -y gnome-contacts
 sudo dnf autoremove -y libreoffice-*
@@ -29,6 +38,7 @@ sudo dnf autoremove -y gnome-boxes
 sudo dnf update -y
 sudo dnf install -y fedora-workstation-repositories
 
+# gnome extentions install and config
 sudo dnf install -y jq
 cd
 mkdir .config/install-gnome-extensions/
@@ -65,6 +75,7 @@ gnome-extensions enable unite@hardpixel.eu
 gnome-extensions enable hidetopbar@mathieu.bidon.ca
 gnome-extensions enable impatience@gfxmonk.net
 
+# terminal install and config
 sudo dnf install -y tilix
 gsettings set com.gexperts.Tilix.Settings enable-wide-handle false
 gsettings set com.gexperts.Tilix.Settings focus-follow-mouse true
@@ -87,6 +98,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command 'nautilus'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name 'Open nautilus'
 
+# dotfiles management
 cd
 sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply rywalskil
 sudo dnf install -y util-linux-user
