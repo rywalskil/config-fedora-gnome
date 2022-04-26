@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+hostnamectl set-hostname 
+
 # repos config files - backup fedora files and update the target to point to the cern one
 sudo mv /etc/yum.repos.d/fedora.repo /etc/yum.repos.d/fedora.repo.bk
 sudo mv /etc/yum.repos.d/fedora-updates.repo /etc/yum.repos.d/fedora-update.repo.bk
@@ -73,7 +75,6 @@ gsettings set org.gnome.shell.extensions.unite window-buttons-theme 'default-dar
 
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
-hostnamectl set-hostname chiws21001.lafabrica.ch
 
 gsettings set org.gnome.shell.extensions.net.gfxmonk.impatience speed-factor 0.0
 gnome-extensions enable unite@hardpixel.eu
