@@ -2,20 +2,6 @@
 
 hostnamectl set-hostname 
 
-# repos config files - backup fedora files and update the target to point to the cern one
-sudo mv /etc/yum.repos.d/fedora.repo /etc/yum.repos.d/fedora.repo.bk
-sudo mv /etc/yum.repos.d/fedora-updates.repo /etc/yum.repos.d/fedora-update.repo.bk
-sudo mv /etc/yum.repos.d/fedora-modular.repo /etc/yum.repos.d/fedora-modular.repo.bk
-
-# disable all the repositories
-sudo dnf config-manager --set-disabled "*"
-
-sudo cp ./fedora.repo /etc/yum.repos.d/
-sudo cp ./fedora-updates.repo /etc/yum.repos.d/
-sudo cp ./fedora-modular.repo /etc/yum.repos.d/
-
-sudo dnf upgrade --refresh
-
 # general settings configuration
 # gsettings set org.gnome.desktop.interface text-scaling-factor 1.68
 gsettings set org.gnome.desktop.background picture-uri ''
@@ -34,6 +20,8 @@ gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'nothi
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 3600
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
+
+sudo dnf upgrade --refresh
 
 # remove useless applications
 sudo dnf autoremove -y cheese
