@@ -109,5 +109,5 @@ echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 # dotfiles update
 chezmoi init
-chezmoi -v apply
+chezmoi -v apply --force
 
