@@ -2,6 +2,10 @@
 
 hostnamectl set-hostname 
 
+# cisco umbrella certificate install
+# sudo cp CERTIFICATE_FILE /etc/pki/ca-trust/source/anchors/
+# sudo update-ca-trust
+
 # general settings configuration
 # gsettings set org.gnome.desktop.interface text-scaling-factor 1.68
 gsettings set org.gnome.desktop.background picture-uri ''
