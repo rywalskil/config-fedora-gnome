@@ -42,7 +42,7 @@ sudo dnf install -y fedora-workstation-repositories
 # gnome extentions install and config
 sudo dnf install -y jq
 cd
-sh -c "$(wget -N -q -O - https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh)" --enable --file ../../config-fedora-gnome/extensionList
+sh -c "$(wget -N -q -O - https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh)" --enable --file config-fedora-gnome/extensionList
 
 gsettings set org.gnome.shell.extensions.hidetopbar enable-active-window true
 gsettings set org.gnome.shell.extensions.hidetopbar enable-intellihide true
