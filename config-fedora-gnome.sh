@@ -42,11 +42,7 @@ sudo dnf install -y fedora-workstation-repositories
 # gnome extentions install and config
 sudo dnf install -y jq
 cd
-mkdir .config/install-gnome-extensions/
-cd .config/install-gnome-extensions/
-rm -f ./install-gnome-extensions.sh; wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O ./install-gnome-extensions.sh && chmod +x install-gnome-extensions.sh
-
-./install-gnome-extensions.sh --enable --file ../../config-fedora-gnome/extensionList
+sh -c "$(wget -N -q -O - https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh)" --enable --file ../../config-fedora-gnome/extensionList
 
 gsettings set org.gnome.shell.extensions.hidetopbar enable-active-window true
 gsettings set org.gnome.shell.extensions.hidetopbar enable-intellihide true
@@ -102,10 +98,11 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 cd
 sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply rywalskil
 
+# zsh install
 sudo dnf install -y util-linux-user
 sudo dnf install -y zsh
 chsh -s $(which zsh)
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(wget -N -q -O - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
