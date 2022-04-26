@@ -7,6 +7,9 @@ sudo mv /etc/yum.repos.d/fedora.repo /etc/yum.repos.d/fedora.repo.bk
 sudo mv /etc/yum.repos.d/fedora-updates.repo /etc/yum.repos.d/fedora-update.repo.bk
 sudo mv /etc/yum.repos.d/fedora-modular.repo /etc/yum.repos.d/fedora-modular.repo.bk
 
+# disable all the repositories
+sudo dnf config-manager --set-disabled "*"
+
 sudo cp ./fedora.repo /etc/yum.repos.d/
 sudo cp ./fedora-updates.repo /etc/yum.repos.d/
 sudo cp ./fedora-modular.repo /etc/yum.repos.d/
