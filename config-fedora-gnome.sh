@@ -67,9 +67,6 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
 gsettings set org.gnome.shell.extensions.net.gfxmonk.impatience speed-factor 0.0
-gnome-extensions enable unite@hardpixel.eu
-gnome-extensions enable hidetopbar@mathieu.bidon.ca
-gnome-extensions enable impatience@gfxmonk.net
 
 # terminal install and config
 sudo dnf install -y tilix
@@ -110,4 +107,9 @@ echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 # dotfiles update
 chezmoi init
 chezmoi -v apply --force
+
+# logout, login, activate gnome extensions
+gnome-extensions enable unite@hardpixel.eu
+gnome-extensions enable hidetopbar@mathieu.bidon.ca
+gnome-extensions enable impatience@gfxmonk.net
 
