@@ -24,6 +24,7 @@ gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'nothi
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 3600
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
+gsettings set org.gnome.desktop.soud event-sound false
 
 sudo dnf upgrade --refresh
 
