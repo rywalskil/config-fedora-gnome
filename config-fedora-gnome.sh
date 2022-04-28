@@ -2,7 +2,7 @@
 
 hostnamectl set-hostname 
 
-# cisco umbrella certificate install
+# cisco umbrella primary certificate install
 # sudo cp CERTIFICATE_FILE /etc/pki/ca-trust/source/anchors/
 # sudo update-ca-trust
 
