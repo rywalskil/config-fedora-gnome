@@ -39,6 +39,7 @@ sudo dnf autoremove -y gnome-tour
 sudo dnf autoremove -y gnome-boxes
 sudo dnf update -y
 sudo dnf install -y fedora-workstation-repositories
+sudo dnf install -y file-roller-nautilus
 
 # gnome extentions install and config
 sudo dnf install -y jq
