@@ -24,7 +24,7 @@ gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'nothi
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 3600
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
-gsettings set org.gnome.desktop.soud event-sound false
+gsettings set org.gnome.desktop.sound event-sounds false
 
 sudo dnf upgrade --refresh
 
@@ -37,38 +37,18 @@ sudo dnf autoremove -y rhythmbox
 sudo dnf autoremove -y gnome-weather
 sudo dnf autoremove -y gnome-tour
 sudo dnf autoremove -y gnome-boxes
-sudo dnf update -y
+sudo dnf upgrade -y
 sudo dnf install -y fedora-workstation-repositories
-sudo dnf install -y file-roller-nautilus
+#sudo dnf install -y file-roller-nautilus
+sudo dnf install htop
+sudo dnf install glances
 
 # gnome extentions install and config
 sudo dnf install -y jq
 cd
-sh -c "$(wget -N -q -O - https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh)" --enable --file config-fedora-gnome/extensionList
-
-gsettings set org.gnome.shell.extensions.hidetopbar enable-active-window true
-gsettings set org.gnome.shell.extensions.hidetopbar enable-intellihide true
-gsettings set org.gnome.shell.extensions.hidetopbar mouse-sensitive true
-gsettings set org.gnome.shell.extensions.hidetopbar mouse-sensitive-fullscreen-window false
-
-gsettings set org.gnome.shell.extensions.unite autofocus-windows true
-gsettings set org.gnome.shell.extensions.unite enable-titlebar-actions true
-gsettings set org.gnome.shell.extensions.unite extend-left-box true
-gsettings set org.gnome.shell.extensions.unite hide-activities-button 'always'
-gsettings set org.gnome.shell.extensions.unite hide-window-titlebars 'always'
-gsettings set org.gnome.shell.extensions.unite notifications-position 'right'
-gsettings set org.gnome.shell.extensions.unite restrict-to-primary-screen false
-gsettings set org.gnome.shell.extensions.unite show-legacy-tray true
-gsettings set org.gnome.shell.extensions.unite show-window-buttons 'always'
-gsettings set org.gnome.shell.extensions.unite show-window-title 'always'
-gsettings set org.gnome.shell.extensions.unite use-system-fonts true
-gsettings set org.gnome.shell.extensions.unite window-buttons-placement 'last'
-gsettings set org.gnome.shell.extensions.unite window-buttons-theme 'default-dark'
+sh -c "$(wget -N -q -O - https://raw.githubusercontent.com/ToasterUwU/install-gnome-extensions/master/install-gnome-extensions.sh)" --enable --file config-fedora-gnome/extensionList
 
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
-
-gsettings set org.gnome.shell.extensions.net.gfxmonk.impatience speed-factor 0.0
 
 # terminal install and config
 sudo dnf install -y tilix
@@ -111,7 +91,5 @@ chezmoi init
 chezmoi -v apply --force
 
 # logout, login, activate gnome extensions
-gnome-extensions enable unite@hardpixel.eu
-gnome-extensions enable hidetopbar@mathieu.bidon.ca
 gnome-extensions enable impatience@gfxmonk.net
 
